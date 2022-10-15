@@ -22,8 +22,11 @@ class RetrofitDemoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRetrofitDemoBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        lifeCycleScope()
         setUpRecyclerView()
+    }
 
+    private fun lifeCycleScope() {
         lifecycleScope.launchWhenCreated {
             binding.progressBar.isVisible = true
             val response = try {
